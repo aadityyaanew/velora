@@ -22,11 +22,10 @@
         </div>
 
         <!-- Lifestyle B2B Collage -->
-        <div class="mb-16 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative group">
-            <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-700 pointer-events-none z-10"></div>
+        <div class="mb-24 lg:mb-28 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative">
             <img src="{{ asset('images/velora_b2b_lifestyle.jpg') }}" 
                  alt="Velora Pure in Gyms, Medical Clinics, Offices, and Luxury Hotels" 
-                 class="w-full h-auto transition-transform duration-1000 group-hover:scale-105">
+                 class="w-full h-auto">
         </div>
 
         <!-- Sector Switcher Tabs -->
