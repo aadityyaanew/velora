@@ -7,7 +7,7 @@
         <div class="flex items-center justify-between h-20 gap-4">
             
             <!-- Brand Emblem & Identity -->
-            <a href="#hero" class="flex items-center gap-3.5 group shrink-0">
+            <a href="{{ route('home') }}" class="flex items-center gap-3.5 group shrink-0">
                 <div class="relative w-12 h-12 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-sky-600 to-cyan-500 shadow-sm group-hover:scale-105 transition duration-300">
                     <img src="{{ asset('images/logo.jpeg') }}" alt="{{ $brand['name'] }}" class="w-full h-full object-cover rounded-full bg-white">
                 </div>
@@ -24,11 +24,11 @@
 
             <!-- Desktop Navigation Links -->
             <nav class="hidden xl:flex items-center gap-5 2xl:gap-7 text-sm font-medium text-slate-600">
-                <a href="{{ route('home') }}#hero" class="hover:text-sky-600 transition whitespace-nowrap">About</a>
+                <a href="{{ route('about') }}" class="hover:text-sky-600 transition whitespace-nowrap {{ request()->routeIs('about') ? 'text-sky-600 font-bold' : '' }}">About</a>
                 <a href="{{ route('products.index') }}" class="hover:text-sky-600 transition whitespace-nowrap {{ request()->routeIs('products.*') ? 'text-sky-600 font-bold' : '' }}">Products</a>
                 <a href="{{ route('home') }}#sectors" class="hover:text-sky-600 transition whitespace-nowrap">B2B Supply</a>
                 <a href="{{ route('blog.index') }}" class="hover:text-sky-600 transition whitespace-nowrap {{ request()->routeIs('blog.*') ? 'text-sky-600 font-bold' : '' }}">Blog & Journal</a>
-                <a href="{{ route('home') }}#enquiry-section" class="hover:text-sky-600 transition whitespace-nowrap">Contact Us</a>
+                <a href="{{ route('contact') }}" class="hover:text-sky-600 transition whitespace-nowrap {{ request()->routeIs('contact') ? 'text-sky-600 font-bold' : '' }}">Contact Us</a>
             </nav>
 
             <!-- Header Actions -->
@@ -39,7 +39,7 @@
                    class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs px-4 py-2.5 rounded-full shadow-sm hover:shadow transition whitespace-nowrap">
                     <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Us
                 </a>
-                <a href="#enquiry-section" 
+                <a href="{{ route('contact') }}" 
                    id="header-enquiry-btn"
                    class="inline-flex items-center gap-2 bg-slate-900 hover:bg-sky-700 text-white font-semibold text-xs px-5 py-2.5 rounded-full shadow-sm hover:shadow transition whitespace-nowrap">
                     <span>Enquire Now</span>
@@ -67,11 +67,11 @@
          x-transition:leave-end="opacity-0 -translate-y-2"
          class="xl:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl"
          style="display: none;">
-        <a @click="mobileMenu = false" href="{{ route('home') }}#hero" class="block text-slate-800 hover:text-sky-600 font-medium py-1">About Velora</a>
+        <a @click="mobileMenu = false" href="{{ route('about') }}" class="block text-slate-800 hover:text-sky-600 font-medium py-1 {{ request()->routeIs('about') ? 'text-sky-600 font-bold' : '' }}">About Velora</a>
         <a @click="mobileMenu = false" href="{{ route('products.index') }}" class="block text-slate-800 hover:text-sky-600 font-medium py-1 {{ request()->routeIs('products.*') ? 'text-sky-600 font-bold' : '' }}">Products</a>
         <a @click="mobileMenu = false" href="{{ route('home') }}#sectors" class="block text-slate-800 hover:text-sky-600 font-medium py-1">B2B Supply</a>
         <a @click="mobileMenu = false" href="{{ route('blog.index') }}" class="block text-slate-800 hover:text-sky-600 font-medium py-1 {{ request()->routeIs('blog.*') ? 'text-sky-600 font-bold' : '' }}">Blog & Journal</a>
-        <a @click="mobileMenu = false" href="{{ route('home') }}#enquiry-section" class="block text-slate-800 hover:text-sky-600 font-medium py-1">Contact Us</a>
+        <a @click="mobileMenu = false" href="{{ route('contact') }}" class="block text-slate-800 hover:text-sky-600 font-medium py-1 {{ request()->routeIs('contact') ? 'text-sky-600 font-bold' : '' }}">Contact Us</a>
         
         <div class="pt-4 border-t border-slate-100 flex flex-col gap-3">
             <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi Velora Pure, I would like to make an enquiry regarding water supply.') }}"
@@ -79,7 +79,7 @@
                class="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm py-3 rounded-xl shadow-sm">
                 <i class="fa-brands fa-whatsapp text-lg"></i> Direct WhatsApp Chat
             </a>
-            <a @click="mobileMenu = false" href="#enquiry-section"
+            <a @click="mobileMenu = false" href="{{ route('contact') }}"
                class="flex items-center justify-center gap-2 bg-slate-900 hover:bg-sky-800 text-white font-semibold text-sm py-3 rounded-xl">
                 Online Enquiry Form
             </a>
