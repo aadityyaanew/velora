@@ -25,14 +25,7 @@
             <!-- Desktop Navigation Links -->
             <nav class="hidden xl:flex items-center gap-5 2xl:gap-7 text-sm font-medium text-slate-600">
                 <a href="#hero" class="hover:text-sky-600 transition whitespace-nowrap">About</a>
-                <a href="#products" class="hover:text-sky-600 transition whitespace-nowrap">Product Range</a>
-                <a href="#packaged-water" class="hover:text-sky-600 transition whitespace-nowrap">Packaged Water</a>
-                <a href="#alkaline-section" class="text-slate-900 font-semibold hover:text-sky-600 transition flex items-center gap-1.5 whitespace-nowrap">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span> Alkaline Water (pH 8.5+)
-                </a>
-                <a href="#sectors" class="hover:text-sky-600 transition whitespace-nowrap">B2B Sectors</a>
-                <a href="#quality" class="hover:text-sky-600 transition whitespace-nowrap">Purity Science</a>
-                <a href="#enquiry-section" class="hover:text-sky-600 transition whitespace-nowrap">Trade Enquiry</a>
+                <a href="#enquiry-section" class="hover:text-sky-600 transition whitespace-nowrap">Contact Us</a>
             </nav>
 
             <!-- Header Actions -->
@@ -72,12 +65,7 @@
          class="xl:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl"
          style="display: none;">
         <a @click="mobileMenu = false" href="#hero" class="block text-slate-800 hover:text-sky-600 font-medium py-1">About Velora</a>
-        <a @click="mobileMenu = false" href="#products" class="block text-slate-800 hover:text-sky-600 font-medium py-1">Product Range (250 ML to 20 L)</a>
-        <a @click="mobileMenu = false" href="#packaged-water" class="block text-slate-800 hover:text-sky-600 font-medium py-1">Packaged Drinking Water</a>
-        <a @click="mobileMenu = false" href="#alkaline-section" class="block text-slate-800 hover:text-sky-600 font-medium py-1">Ionized Alkaline Water (pH 8.5+)</a>
-        <a @click="mobileMenu = false" href="#sectors" class="block text-slate-800 hover:text-sky-600 font-medium py-1">B2B Sectors (Gyms, Clinics, Offices, Hotels)</a>
-        <a @click="mobileMenu = false" href="#quality" class="block text-slate-800 hover:text-sky-600 font-medium py-1">7-Stage Purification Process</a>
-        <a @click="mobileMenu = false" href="#enquiry-section" class="block text-slate-800 hover:text-sky-600 font-medium py-1">Trade & Customer Enquiry</a>
+        <a @click="mobileMenu = false" href="#enquiry-section" class="block text-slate-800 hover:text-sky-600 font-medium py-1">Contact Us</a>
         
         <div class="pt-4 border-t border-slate-100 flex flex-col gap-3">
             <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi Velora Pure, I would like to make an enquiry regarding water supply.') }}"

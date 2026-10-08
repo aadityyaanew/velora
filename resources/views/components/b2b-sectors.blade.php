@@ -3,87 +3,98 @@
     $brand = config('velora.brand');
 @endphp
 
-<section id="sectors" class="py-24 bg-white border-b border-slate-200" x-data="{ currentSector: 'gym' }">
+<section id="sectors" class="py-24 lg:py-32 bg-slate-50" x-data="{ currentSector: 'gym' }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span class="inline-block px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-widest border border-slate-200">
-                Institutional & Commercial
-            </span>
-            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
-                Tailored Commercial Hydration Contracts
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <div class="inline-flex items-center justify-center gap-3 mb-2">
+                <span class="h-[1px] w-8 bg-sky-600"></span>
+                <span class="text-sky-800 text-xs font-bold tracking-[0.2em] uppercase">Institutional & Commercial</span>
+                <span class="h-[1px] w-8 bg-sky-600"></span>
+            </div>
+
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-medium text-slate-900 tracking-tight">
+                Tailored Commercial <br><span class="italic font-serif text-sky-800">Hydration Contracts</span>
             </h2>
-            <p class="text-slate-600 text-base leading-relaxed">
+            <p class="text-slate-500 text-lg leading-relaxed font-light mt-4">
                 We supply scheduled, high-volume batches to wellness studios, medical institutions, IT workspaces, and five-star hospitality partners.
             </p>
         </div>
 
         <!-- Lifestyle B2B Collage -->
-        <div class="mb-12 rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
+        <div class="mb-16 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative group">
+            <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-700 pointer-events-none z-10"></div>
             <img src="{{ asset('images/velora_b2b_lifestyle.jpg') }}" 
                  alt="Velora Pure in Gyms, Medical Clinics, Offices, and Luxury Hotels" 
-                 class="w-full h-auto object-cover max-h-[440px]">
+                 class="w-full h-auto transition-transform duration-1000 group-hover:scale-105">
         </div>
 
         <!-- Sector Switcher Tabs -->
-        <div class="flex flex-wrap justify-center gap-2.5 mb-8">
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
             @foreach($sectors as $secKey => $sector)
                 <button @click="currentSector = '{{ $secKey }}'"
                         :class="currentSector === '{{ $secKey }}' 
-                            ? 'bg-slate-900 text-white font-semibold shadow-sm' 
-                            : 'bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200'"
-                        class="px-5 py-2.5 rounded-xl text-xs transition flex items-center gap-2">
-                    <i class="fa-solid {{ $sector['icon'] }}"></i>
+                            ? 'bg-slate-900 text-white shadow-xl shadow-slate-900/10' 
+                            : 'bg-white text-slate-500 hover:text-slate-900 hover:bg-slate-100 shadow-sm'"
+                        class="px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center gap-2">
+                    <i class="fa-solid {{ $sector['icon'] }} text-sm"></i>
                     <span>{{ $sector['title'] }}</span>
                 </button>
             @endforeach
         </div>
 
         <!-- Sector Tab Contents -->
-        @foreach($sectors as $secKey => $sector)
-            <div x-show="currentSector === '{{ $secKey }}'" 
-                 x-transition 
-                 class="bg-slate-50 rounded-3xl p-8 lg:p-12 border border-slate-200"
-                 style="display: none;">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="relative">
+            @foreach($sectors as $secKey => $sector)
+                <div x-show="currentSector === '{{ $secKey }}'" 
+                     x-transition:enter="transition ease-out duration-500"
+                     x-transition:enter-start="opacity-0 translate-y-4"
+                     x-transition:enter-end="opacity-100 translate-y-0"
+                     class="bg-white rounded-[2rem] p-10 lg:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100"
+                     style="display: none;">
                     
-                    <div class="lg:col-span-8 space-y-4">
-                        <div class="text-xs font-bold uppercase tracking-wider text-sky-700 flex items-center gap-2">
-                            <i class="fa-solid {{ $sector['icon'] }}"></i>
-                            <span>{{ $sector['subtitle'] }}</span>
-                        </div>
-                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
-                            {{ $sector['title'] }}
-                        </h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            {{ $sector['lead'] }}
-                        </p>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                         
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                            @foreach($sector['features'] as $feature)
-                                <div class="flex items-start gap-2.5 text-xs text-slate-700">
-                                    <i class="fa-solid fa-check text-sky-600 mt-0.5"></i>
-                                    <span>{{ $feature }}</span>
-                                </div>
-                            @endforeach
+                        <div class="lg:col-span-8 space-y-6">
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-sky-600 flex items-center gap-2">
+                                <i class="fa-solid {{ $sector['icon'] }}"></i>
+                                <span>{{ $sector['subtitle'] }}</span>
+                            </div>
+                            
+                            <h3 class="font-serif text-3xl sm:text-4xl font-medium text-slate-900">
+                                {{ $sector['title'] }}
+                            </h3>
+                            
+                            <p class="text-base text-slate-500 leading-relaxed font-light">
+                                {{ $sector['lead'] }}
+                            </p>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
+                                @foreach($sector['features'] as $feature)
+                                    <div class="flex items-start gap-3 text-sm text-slate-600 font-light">
+                                        <i class="fa-solid fa-check text-sky-500 mt-1"></i>
+                                        <span>{{ $feature }}</span>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="lg:col-span-4 flex flex-col gap-3">
-                        <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode($sector['whatsapp_text']) }}"
-                           target="_blank"
-                           class="w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs py-3.5 rounded-xl shadow-sm transition">
-                            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp {{ explode(' ', $sector['title'])[0] }} Enquiry
-                        </a>
-                        <button @click="openEnquiryFor('Multiple Sizes', 'Packaged Drinking Water')"
-                                class="w-full text-center bg-slate-900 hover:bg-sky-800 text-white font-semibold text-xs py-3.5 rounded-xl transition">
-                            Request Commercial Quote
-                        </button>
-                    </div>
+                        <div class="lg:col-span-4 flex flex-col gap-4">
+                            <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode($sector['whatsapp_text']) }}"
+                               target="_blank"
+                               class="w-full text-center bg-slate-900 hover:bg-sky-800 text-white font-medium text-sm py-4 rounded-xl transition-colors duration-300 flex justify-center items-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i> WhatsApp {{ explode(' ', $sector['title'])[0] }} Enquiry
+                            </a>
+                            <button @click="openEnquiryFor('Multiple Sizes', 'Packaged Drinking Water')"
+                                    class="w-full text-center bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-900 font-bold uppercase tracking-widest text-xs py-4 rounded-xl transition-colors duration-300 border border-slate-200">
+                                Request Commercial Quote
+                            </button>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
 
     </div>
 </section>
