@@ -1,88 +1,141 @@
+
 @php
     $brand = config('velora.brand');
 @endphp
 
-<section id="packaged-water" class="py-24 lg:py-32 bg-white relative">
+<section id="packaged-water" class="py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            
-            <!-- Left Visual -->
-            <div class="order-2 lg:order-1 relative group">
-                <div class="absolute inset-0 bg-sky-100 rounded-full blur-3xl opacity-50"></div>
-                <img src="{{ asset('images/velora_bottles_lineup.jpg') }}" 
-                     alt="Velora Pure Packaged Drinking Water Lineup" 
-                     class="w-full rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative z-10">
-            </div>
+        <div class="grid lg:grid-cols-2 items-center gap-12 lg:gap-20">
 
-            <!-- Right Content -->
-            <div class="order-1 lg:order-2 space-y-8">
-                
-                <div class="inline-flex items-center gap-3 mb-2">
-                    <span class="h-[1px] w-8 bg-sky-600"></span>
-                    <span class="text-sky-800 text-xs font-bold tracking-[0.2em] uppercase">Natural Mineral Balance</span>
+            {{-- Content --}}
+            <div class="max-w-2xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-8 h-px bg-sky-600"></span>
+                    <span class="text-sm font-semibold tracking-wide text-sky-700 uppercase">
+                        Natural Mineral Balance
+                    </span>
                 </div>
-                
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-medium text-slate-900 tracking-tight leading-[1.1]">
-                    Premium Packaged <br>
-                    <span class="italic font-serif text-sky-800">Drinking Water</span>
+
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight text-slate-900">
+                    Premium Packaged
+                    <span class="block text-sky-700">
+                        Drinking Water
+                    </span>
                 </h2>
-                
-                <p class="text-slate-500 text-lg leading-relaxed font-light">
-                    Experience the crisp, clean taste of <strong>VELORA PURE Packaged Drinking Water</strong>. We take water through a rigorous multi-step purification process and carefully restore essential minerals, ensuring every drop is perfectly balanced, safe, and incredibly refreshing.
+
+                <p class="mt-6 text-lg leading-8 text-slate-600">
+                    Experience the crisp, clean taste of
+                    <strong class="font-semibold text-slate-800">VELORA PURE Packaged Drinking Water</strong>.
+                    Our multi-step purification process helps deliver safe, clean and refreshing water
+                    with carefully balanced essential minerals.
                 </p>
 
-                <!-- Specs Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
-                    <!-- Feature 1 -->
-                    <div class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-sky-100 transition-all duration-300">
-                        <div class="w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-sky-100 transition-transform duration-300">
+                {{-- Features --}}
+                <div class="mt-10 grid sm:grid-cols-2 gap-x-8 gap-y-8">
+
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center">
                             <i class="fa-solid fa-droplet text-sky-600"></i>
                         </div>
-                        <h4 class="text-base font-semibold text-slate-900 mb-2">Perfectly Balanced</h4>
-                        <p class="text-sm text-slate-500 font-light leading-relaxed">Infused with just the right amount of essential minerals for a smooth taste and optimal hydration.</p>
+                        <div>
+                            <h3 class="text-base font-semibold text-slate-900">
+                                Perfectly Balanced
+                            </h3>
+                            <p class="mt-1 text-sm leading-6 text-slate-600">
+                                Essential minerals for a smooth taste and refreshing hydration.
+                            </p>
+                        </div>
                     </div>
-                    
-                    <!-- Feature 2 -->
-                    <div class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-sky-100 transition-all duration-300">
-                        <div class="w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-sky-100 transition-transform duration-300">
+
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center">
                             <i class="fa-solid fa-shield-halved text-sky-600"></i>
                         </div>
-                        <h4 class="text-base font-semibold text-slate-900 mb-2">Uncompromising Purity</h4>
-                        <p class="text-sm text-slate-500 font-light leading-relaxed">Guaranteed free from microplastics, chlorine, and unwanted impurities. Just pure, clean water.</p>
-                    </div>
-                    
-                    <!-- Feature 3 -->
-                    <div class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-sky-100 transition-all duration-300">
-                        <div class="w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-sky-100 transition-transform duration-300">
-                            <i class="fa-solid fa-robot text-sky-600"></i>
+                        <div>
+                            <h3 class="text-base font-semibold text-slate-900">
+                                High Purity
+                            </h3>
+                            <p class="mt-1 text-sm leading-6 text-slate-600">
+                                Carefully purified and processed to maintain clean, consistent quality.
+                            </p>
                         </div>
-                        <h4 class="text-base font-semibold text-slate-900 mb-2">Untouched by Hands</h4>
-                        <p class="text-sm text-slate-500 font-light leading-relaxed">Bottled using state-of-the-art automated systems to maintain the highest hygiene standards.</p>
                     </div>
 
-                    <!-- Feature 4 -->
-                    <div class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-sky-100 transition-all duration-300">
-                        <div class="w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-sky-100 transition-transform duration-300">
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center">
+                            <i class="fa-solid fa-gears text-sky-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-semibold text-slate-900">
+                                Automated Bottling
+                            </h3>
+                            <p class="mt-1 text-sm leading-6 text-slate-600">
+                                Modern bottling systems help maintain hygiene throughout production.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center">
                             <i class="fa-solid fa-truck-fast text-sky-600"></i>
                         </div>
-                        <h4 class="text-base font-semibold text-slate-900 mb-2">Factory Fresh</h4>
-                        <p class="text-sm text-slate-500 font-light leading-relaxed">Delivered directly from our advanced bottling facility to ensure pristine quality in every bottle.</p>
+                        <div>
+                            <h3 class="text-base font-semibold text-slate-900">
+                                Factory Fresh
+                            </h3>
+                            <p class="mt-1 text-sm leading-6 text-slate-600">
+                                Supplied directly from our bottling facility for dependable freshness.
+                            </p>
+                        </div>
                     </div>
+
                 </div>
 
-                <div class="pt-8 flex flex-col sm:flex-row gap-4">
-                    <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi Velora Pure, I would like to enquire about bulk supply for Packaged Drinking Water.') }}"
-                       target="_blank"
-                       class="inline-flex justify-center items-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-medium text-sm px-8 py-4 rounded-full transition-all duration-300 shadow-lg shadow-[#25D366]/20 hover:shadow-[#25D366]/40 hover:-translate-y-0.5">
-                        <i class="fa-brands fa-whatsapp text-white text-lg"></i> WhatsApp Enquiry
+                {{-- CTA Buttons --}}
+                <div class="mt-10 flex flex-col sm:flex-row gap-4">
+
+                    <a
+                        href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi Velora Pure, I would like to enquire about bulk supply for Packaged Drinking Water.') }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-lg bg-[#25D366] hover:bg-[#1ebe5d] text-white text-sm font-semibold transition-colors"
+                    >
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        WhatsApp Enquiry
                     </a>
-                    <button @click="openEnquiryFor('1 L', 'Packaged Drinking Water')"
-                            class="inline-flex justify-center items-center gap-2 bg-white hover:bg-slate-50 text-slate-900 font-semibold text-sm px-8 py-4 rounded-full transition-all duration-300 border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 group">
+
+                    <button
+                        @click="openEnquiryFor('1 L', 'Packaged Drinking Water')"
+                        type="button"
+                        class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-900 text-sm font-semibold transition-colors"
+                    >
                         Request Trade Pricing
-                        <i class="fa-solid fa-arrow-right text-sky-600 opacity-70 group-hover:translate-x-1 transition-transform duration-300"></i>
+                        <i class="fa-solid fa-arrow-right text-sky-600"></i>
                     </button>
+
+                </div>
+            </div>
+
+            {{-- Product Image --}}
+            <div class="relative">
+                <div class="overflow-hidden rounded-2xl bg-slate-100">
+                    <img
+                        src="{{ asset('images/velora_bottles_lineup.jpg') }}"
+                        alt="Velora Pure packaged drinking water bottles"
+                        class="w-full h-[420px] sm:h-[500px] lg:h-[620px] object-cover object-center"
+                        loading="lazy"
+                    >
                 </div>
 
+                {{-- Small product label --}}
+                <div class="absolute bottom-5 left-5 bg-white px-5 py-4 rounded-xl shadow-lg">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                        Velora Pure
+                    </p>
+                    <p class="mt-1 text-sm font-semibold text-slate-900">
+                        Packaged Drinking Water
+                    </p>
+                </div>
             </div>
 
         </div>
