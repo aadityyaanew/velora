@@ -87,5 +87,14 @@
             @endforeach
         </div>
 
+        <!-- Full Catalog Navigation Link -->
+        <div class="mt-14 text-center">
+            <a href="{{ route('products.index') }}" 
+               class="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-slate-900 hover:bg-sky-800 text-white font-semibold text-sm shadow-md hover:shadow-lg transition duration-200">
+                <span>Explore Full Packaging Catalog & Specifications</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+
     </div>
 </section>

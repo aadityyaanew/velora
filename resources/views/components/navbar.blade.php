@@ -25,7 +25,7 @@
             <!-- Desktop Navigation Links -->
             <nav class="hidden xl:flex items-center gap-5 2xl:gap-7 text-sm font-medium text-slate-600">
                 <a href="{{ route('home') }}#hero" class="hover:text-sky-600 transition whitespace-nowrap">About</a>
-                <a href="{{ route('home') }}#products" class="hover:text-sky-600 transition whitespace-nowrap">Products</a>
+                <a href="{{ route('products.index') }}" class="hover:text-sky-600 transition whitespace-nowrap {{ request()->routeIs('products.*') ? 'text-sky-600 font-bold' : '' }}">Products</a>
                 <a href="{{ route('home') }}#sectors" class="hover:text-sky-600 transition whitespace-nowrap">B2B Supply</a>
                 <a href="{{ route('blog.index') }}" class="hover:text-sky-600 transition whitespace-nowrap {{ request()->routeIs('blog.*') ? 'text-sky-600 font-bold' : '' }}">Blog & Journal</a>
                 <a href="{{ route('home') }}#enquiry-section" class="hover:text-sky-600 transition whitespace-nowrap">Contact Us</a>
@@ -68,7 +68,7 @@
          class="xl:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl"
          style="display: none;">
         <a @click="mobileMenu = false" href="{{ route('home') }}#hero" class="block text-slate-800 hover:text-sky-600 font-medium py-1">About Velora</a>
-        <a @click="mobileMenu = false" href="{{ route('home') }}#products" class="block text-slate-800 hover:text-sky-600 font-medium py-1">Products</a>
+        <a @click="mobileMenu = false" href="{{ route('products.index') }}" class="block text-slate-800 hover:text-sky-600 font-medium py-1 {{ request()->routeIs('products.*') ? 'text-sky-600 font-bold' : '' }}">Products</a>
         <a @click="mobileMenu = false" href="{{ route('home') }}#sectors" class="block text-slate-800 hover:text-sky-600 font-medium py-1">B2B Supply</a>
         <a @click="mobileMenu = false" href="{{ route('blog.index') }}" class="block text-slate-800 hover:text-sky-600 font-medium py-1 {{ request()->routeIs('blog.*') ? 'text-sky-600 font-bold' : '' }}">Blog & Journal</a>
         <a @click="mobileMenu = false" href="{{ route('home') }}#enquiry-section" class="block text-slate-800 hover:text-sky-600 font-medium py-1">Contact Us</a>

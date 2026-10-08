@@ -25,12 +25,12 @@
             <div>
                 <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-3">Bottle Portfolio</h4>
                 <ul class="space-y-2">
-                    <li><a href="#products" class="hover:text-white transition">250 ML Petite Banquet</a></li>
-                    <li><a href="#products" class="hover:text-white transition">500 ML Active Classic</a></li>
-                    <li><a href="#products" class="hover:text-white transition">1 LITER Dining Standard</a></li>
-                    <li><a href="#products" class="hover:text-white transition">2.5 LITER Endurance Jug</a></li>
-                    <li><a href="#products" class="hover:text-white transition">5 LITER Tap Dispenser</a></li>
-                    <li><a href="#products" class="hover:text-white transition">20 LITER Commercial Cooler Jar</a></li>
+                    <li><a href="{{ route('products.index') }}" class="hover:text-white transition">250 ML Petite Banquet</a></li>
+                    <li><a href="{{ route('products.index') }}" class="hover:text-white transition">500 ML Active Classic</a></li>
+                    <li><a href="{{ route('products.index') }}" class="hover:text-white transition">1 LITER Dining Standard</a></li>
+                    <li><a href="{{ route('products.index') }}" class="hover:text-white transition">2.5 LITER Endurance Jug</a></li>
+                    <li><a href="{{ route('products.index') }}" class="hover:text-white transition">5 LITER Tap Dispenser</a></li>
+                    <li><a href="{{ route('products.index') }}" class="hover:text-white transition">20 LITER Commercial Cooler Jar</a></li>
                 </ul>
             </div>
 
