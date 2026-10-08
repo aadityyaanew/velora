@@ -38,11 +38,12 @@
             <div>
                 <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-3">Institutional Supply</h4>
                 <ul class="space-y-2">
-                    <li><a href="#sectors" class="hover:text-white transition">Gyms & Athletic Studios</a></li>
-                    <li><a href="#sectors" class="hover:text-white transition">Clinics & Medical Lounges</a></li>
-                    <li><a href="#sectors" class="hover:text-white transition">Corporate Workspaces</a></li>
-                    <li><a href="#sectors" class="hover:text-white transition">Luxury Hotels & Banquets</a></li>
-                    <li><a href="#alkaline-section" class="hover:text-white transition">Alkaline Water (pH 8.5+)</a></li>
+                    <li><a href="{{ route('home') }}#sectors" class="hover:text-white transition">Gyms & Athletic Studios</a></li>
+                    <li><a href="{{ route('home') }}#sectors" class="hover:text-white transition">Clinics & Medical Lounges</a></li>
+                    <li><a href="{{ route('home') }}#sectors" class="hover:text-white transition">Corporate Workspaces</a></li>
+                    <li><a href="{{ route('home') }}#sectors" class="hover:text-white transition">Luxury Hotels & Banquets</a></li>
+                    <li><a href="{{ route('home') }}#alkaline-section" class="hover:text-white transition">Alkaline Water (pH 8.5+)</a></li>
+                    <li><a href="{{ route('blog.index') }}" class="hover:text-sky-400 font-semibold transition">Velora Journal & Blog &rarr;</a></li>
                 </ul>
             </div>
 

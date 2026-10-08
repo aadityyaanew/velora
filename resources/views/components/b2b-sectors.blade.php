@@ -21,12 +21,7 @@
             </p>
         </div>
 
-        <!-- Lifestyle B2B Collage -->
-        <div class="mb-24 lg:mb-28 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative">
-            <img src="{{ asset('images/velora_b2b_lifestyle.jpg') }}" 
-                 alt="Velora Pure in Gyms, Medical Clinics, Offices, and Luxury Hotels" 
-                 class="w-full h-auto">
-        </div>
+
 
         <!-- Sector Switcher Tabs -->
         <div class="flex flex-wrap justify-center gap-3 mb-10">
