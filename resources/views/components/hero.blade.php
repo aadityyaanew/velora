@@ -12,11 +12,13 @@
         <div class="flex flex-col items-center justify-center text-center">
             
             <!-- Elegant Eyebrow -->
-            <div class="inline-flex items-center justify-center gap-3 mb-8">
-                <span class="h-[1px] w-12 bg-sky-700"></span>
-                <span class="text-sky-800 text-sm font-extrabold tracking-[0.25em] uppercase drop-shadow-sm">{{ $brand['tagline'] }}</span>
-                <span class="h-[1px] w-12 bg-sky-700"></span>
-            </div>
+            @if(!empty($brand['tagline']))
+                <div class="inline-flex items-center justify-center gap-3 mb-8">
+                    <span class="h-[1px] w-12 bg-sky-700"></span>
+                    <span class="text-sky-800 text-sm font-extrabold tracking-[0.25em] uppercase drop-shadow-sm">{{ $brand['tagline'] }}</span>
+                    <span class="h-[1px] w-12 bg-sky-700"></span>
+                </div>
+            @endif
 
             <!-- Main Headline -->
             <h1 class="text-5xl sm:text-7xl lg:text-[6rem] font-medium text-slate-900 leading-[1.05] tracking-tight mb-8 drop-shadow-md">
@@ -26,7 +28,7 @@
 
             <!-- Refined Subtext -->
             <p class="text-lg sm:text-xl text-slate-800 leading-relaxed font-medium max-w-2xl mx-auto mb-10 drop-shadow-sm">
-                Sourced from purity, <strong>VELORA PURE</strong> delivers international-standard hydration. Enhanced with an advanced 7-stage purification regime for a perfectly balanced, crisp taste.
+                Sourced from purity, <strong>{{ $brand['name'] ?? 'VELORA PURE' }}</strong> delivers international-standard hydration. Enhanced with an advanced 7-stage purification regime for a perfectly balanced, crisp taste.
             </p>
 
             <!-- Simplified Details -->
@@ -42,12 +44,21 @@
 
             <!-- Premium CTAs -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto">
-                <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi Velora Pure, I would like to enquire about ordering Velora Pure Water.') }}"
-                   target="_blank"
-                   class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-slate-900 hover:bg-sky-800 text-white font-medium text-sm px-10 py-4 rounded-full transition-all duration-300 shadow-2xl hover:-translate-y-1">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>Enquire via WhatsApp</span>
-                </a>
+                @if(!empty($brand['whatsapp_number']))
+                    <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi ' . ($brand['name'] ?? 'Velora Pure') . ', I would like to enquire about ordering Velora Pure Water.') }}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-slate-900 hover:bg-sky-800 text-white font-medium text-sm px-10 py-4 rounded-full transition-all duration-300 shadow-2xl hover:-translate-y-1">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Enquire via WhatsApp</span>
+                    </a>
+                @else
+                    <a href="#enquiry-section"
+                       class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-slate-900 hover:bg-sky-800 text-white font-medium text-sm px-10 py-4 rounded-full transition-all duration-300 shadow-2xl hover:-translate-y-1">
+                        <i class="fa-solid fa-envelope text-lg"></i>
+                        <span>Enquire Online</span>
+                    </a>
+                @endif
                 <a href="#products"
                    class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/70 hover:bg-white text-slate-900 font-bold text-sm px-10 py-4 rounded-full transition-all duration-300 backdrop-blur-md shadow-xl hover:-translate-y-1">
                     <span>Explore Collection</span>

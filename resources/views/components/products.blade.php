@@ -76,11 +76,19 @@
 
                     <!-- Action Buttons -->
                     <div class="flex flex-col gap-3 pt-6 border-t border-slate-100/50">
-                        <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode($product['whatsapp_text']) }}"
-                           target="_blank"
-                           class="w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-sky-800 text-white font-medium text-sm py-4 rounded-xl transition-colors duration-300">
-                            <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i> Enquire via WhatsApp
-                        </a>
+                        @if(!empty($brand['whatsapp_number']))
+                            <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode($product['whatsapp_text']) }}"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-sky-800 text-white font-medium text-sm py-4 rounded-xl transition-colors duration-300">
+                                <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i> Enquire via WhatsApp
+                            </a>
+                        @else
+                            <button @click="openEnquiryFor('{{ $product['size'] }}', 'Packaged Drinking Water')"
+                                    class="w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-sky-800 text-white font-medium text-sm py-4 rounded-xl transition-colors duration-300">
+                                <i class="fa-solid fa-envelope text-sky-400 text-base"></i> Enquire for Supply
+                            </button>
+                        @endif
                     </div>
 
                 </div>

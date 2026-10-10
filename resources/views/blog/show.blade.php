@@ -110,11 +110,14 @@
                         <a href="{{ route('home') }}#enquiry-section" class="px-6 py-2.5 rounded-full bg-sky-500 hover:bg-sky-600 text-white font-semibold text-xs transition shadow-md">
                             Submit B2B Enquiry
                         </a>
-                        <a href="https://wa.me/{{ config('velora.brand.whatsapp_number') }}?text={{ urlencode('Hi Velora Pure, I was reading your journal and want to inquire about supply.') }}" 
-                           target="_blank"
-                           class="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition shadow-md inline-flex items-center gap-1.5">
-                            <i class="fa-brands fa-whatsapp"></i> WhatsApp Desk
-                        </a>
+                        @if(!empty(config('velora.brand.whatsapp_number')))
+                            <a href="https://wa.me/{{ config('velora.brand.whatsapp_number') }}?text={{ urlencode('Hi ' . (config('velora.brand.name') ?? 'Velora Pure') . ', I was reading your journal and want to inquire about supply.') }}" 
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition shadow-md inline-flex items-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp"></i> WhatsApp Desk
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -217,11 +217,14 @@
                                 @php
                                     $waMsg = $product->whatsapp_text ?: "Hi Velora Pure, I would like to enquire about bulk supply for {$product->name} ({$product->size}).";
                                 @endphp
-                                <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode($waMsg) }}"
-                                   target="_blank"
-                                   class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-xs sm:text-sm py-3 px-4 rounded-xl shadow-xs transition duration-200">
-                                    <i class="fa-brands fa-whatsapp text-lg"></i> Enquire via WhatsApp
-                                </a>
+                                @if(!empty($brand['whatsapp_number']))
+                                    <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode($waMsg) }}"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-xs sm:text-sm py-3 px-4 rounded-xl shadow-xs transition duration-200">
+                                        <i class="fa-brands fa-whatsapp text-lg"></i> Enquire via WhatsApp
+                                    </a>
+                                @endif
 
                                 <div class="grid grid-cols-2 gap-2">
                                     <a href="{{ route('products.show', $product->slug) }}"
@@ -269,11 +272,14 @@
                     </p>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-4 shrink-0 w-full sm:w-auto">
-                    <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi Velora Pure, I would like to discuss custom co-branded bottles and institutional supply.') }}"
-                       target="_blank"
-                       class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-lg transition">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> Discuss Private Labeling
-                    </a>
+                    @if(!empty($brand['whatsapp_number']))
+                        <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi ' . ($brand['name'] ?? 'Velora Pure') . ', I would like to discuss custom co-branded bottles and institutional supply.') }}"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-lg transition">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Discuss Private Labeling
+                        </a>
+                    @endif
                     <a href="{{ route('home') }}#enquiry-section"
                        class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-semibold text-sm transition">
                         <span>Submit RFP / Enquiry</span>

@@ -36,61 +36,144 @@
 
                     <div class="space-y-6">
                         <!-- Direct Phone -->
-                        <a href="tel:{{ $brand['phone_raw'] }}" class="flex items-center gap-5 text-slate-600 hover:text-sky-700 transition group">
-                            <div class="w-12 h-12 rounded-full bg-slate-50 text-sky-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-sky-50 transition-all duration-300">
-                                <i class="fa-solid fa-phone text-lg"></i>
-                            </div>
-                            <div>
-                                <p class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-1">Direct Telephone</p>
-                                <p class="text-base font-medium text-slate-900">{{ $brand['phone'] }}</p>
-                            </div>
-                        </a>
+                        @if(!empty($brand['phone']))
+                            <a href="tel:{{ $brand['phone_raw'] ?? preg_replace('/[^0-9+]/', '', $brand['phone']) }}" class="flex items-center gap-5 text-slate-600 hover:text-sky-700 transition group">
+                                <div class="w-12 h-12 rounded-full bg-slate-50 text-sky-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-sky-50 transition-all duration-300">
+                                    <i class="fa-solid fa-phone text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-1">Direct Telephone</p>
+                                    <p class="text-base font-medium text-slate-900">{{ $brand['phone'] }}</p>
+                                </div>
+                            </a>
+                        @endif
+
+                        <!-- Alternate Phone -->
+                        @if(!empty($brand['alternate_phone']))
+                            <a href="tel:{{ preg_replace('/[^0-9+]/', '', $brand['alternate_phone']) }}" class="flex items-center gap-5 text-slate-600 hover:text-sky-700 transition group">
+                                <div class="w-12 h-12 rounded-full bg-slate-50 text-sky-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-sky-50 transition-all duration-300">
+                                    <i class="fa-solid fa-phone-volume text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-1">Alternate Phone</p>
+                                    <p class="text-base font-medium text-slate-900">{{ $brand['alternate_phone'] }}</p>
+                                </div>
+                            </a>
+                        @endif
 
                         <!-- WhatsApp Hotline -->
-                        <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi Velora Pure, I have a commercial enquiry regarding water supply.') }}" 
-                           target="_blank" 
-                           class="flex items-center gap-5 text-slate-600 hover:text-emerald-700 transition group">
-                            <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-emerald-100 transition-all duration-300">
-                                <i class="fa-brands fa-whatsapp text-2xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-1">WhatsApp Commercial Desk</p>
-                                <p class="text-base font-medium text-emerald-700">{{ $brand['phone'] }}</p>
-                            </div>
-                        </a>
+                        @if(!empty($brand['whatsapp_number']))
+                            <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi Velora Pure, I have a commercial enquiry regarding water supply.') }}" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="flex items-center gap-5 text-slate-600 hover:text-emerald-700 transition group">
+                                <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-emerald-100 transition-all duration-300">
+                                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-1">WhatsApp Commercial Desk</p>
+                                    <p class="text-base font-medium text-emerald-700">{{ $brand['phone'] ?? $brand['whatsapp_number'] }}</p>
+                                </div>
+                            </a>
+                        @endif
 
                         <!-- Email -->
-                        <a href="mailto:{{ $brand['email'] }}" class="flex items-center gap-5 text-slate-600 hover:text-sky-700 transition group">
-                            <div class="w-12 h-12 rounded-full bg-slate-50 text-sky-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-sky-50 transition-all duration-300">
-                                <i class="fa-solid fa-envelope text-lg"></i>
-                            </div>
-                            <div>
-                                <p class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-1">Official Correspondence</p>
-                                <p class="text-base font-medium text-slate-900">{{ $brand['email'] }}</p>
-                            </div>
-                        </a>
+                        @if(!empty($brand['email']))
+                            <a href="mailto:{{ $brand['email'] }}" class="flex items-center gap-5 text-slate-600 hover:text-sky-700 transition group">
+                                <div class="w-12 h-12 rounded-full bg-slate-50 text-sky-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-sky-50 transition-all duration-300">
+                                    <i class="fa-solid fa-envelope text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-1">Official Correspondence</p>
+                                    <p class="text-base font-medium text-slate-900">{{ $brand['email'] }}</p>
+                                </div>
+                            </a>
+                        @endif
 
-                        <!-- Instagram -->
-                        <a href="{{ $brand['instagram'] }}" target="_blank" class="flex items-center gap-5 text-slate-600 hover:text-pink-600 transition group">
-                            <div class="w-12 h-12 rounded-full bg-slate-50 text-pink-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-pink-50 transition-all duration-300">
-                                <i class="fa-brands fa-instagram text-2xl"></i>
+                        <!-- Support Email -->
+                        @if(!empty($brand['support_email']))
+                            <a href="mailto:{{ $brand['support_email'] }}" class="flex items-center gap-5 text-slate-600 hover:text-sky-700 transition group">
+                                <div class="w-12 h-12 rounded-full bg-slate-50 text-sky-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-sky-50 transition-all duration-300">
+                                    <i class="fa-solid fa-headset text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-1">Commercial Support</p>
+                                    <p class="text-base font-medium text-slate-900">{{ $brand['support_email'] }}</p>
+                                </div>
+                            </a>
+                        @endif
+
+                        <!-- Social Channels Grid in Contact Desk -->
+                        @php
+                            $contactSocials = !empty($brand['facebook']) || !empty($brand['instagram']) || !empty($brand['linkedin']) || !empty($brand['youtube']) || !empty($brand['x']);
+                        @endphp
+                        @if($contactSocials)
+                            <div class="pt-2">
+                                <p class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-3">Connect on Social Channels</p>
+                                <div class="flex flex-wrap items-center gap-2.5">
+                                    @if(!empty($brand['instagram']))
+                                        <a href="{{ $brand['instagram'] }}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full bg-slate-50 hover:bg-pink-50 border border-slate-200 text-slate-700 hover:text-pink-600 text-xs font-medium flex items-center gap-2 transition" title="Instagram">
+                                            <i class="fa-brands fa-instagram text-pink-500"></i>
+                                            <span>{{ $brand['instagram_handle'] ?? 'Instagram' }}</span>
+                                        </a>
+                                    @endif
+
+                                    @if(!empty($brand['facebook']))
+                                        <a href="{{ $brand['facebook'] }}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full bg-slate-50 hover:bg-sky-50 border border-slate-200 text-slate-700 hover:text-sky-600 text-xs font-medium flex items-center gap-2 transition" title="Facebook">
+                                            <i class="fa-brands fa-facebook-f text-sky-600"></i>
+                                            <span>Facebook</span>
+                                        </a>
+                                    @endif
+
+                                    @if(!empty($brand['linkedin']))
+                                        <a href="{{ $brand['linkedin'] }}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full bg-slate-50 hover:bg-sky-50 border border-slate-200 text-slate-700 hover:text-sky-700 text-xs font-medium flex items-center gap-2 transition" title="LinkedIn">
+                                            <i class="fa-brands fa-linkedin-in text-sky-700"></i>
+                                            <span>LinkedIn</span>
+                                        </a>
+                                    @endif
+
+                                    @if(!empty($brand['youtube']))
+                                        <a href="{{ $brand['youtube'] }}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full bg-slate-50 hover:bg-red-50 border border-slate-200 text-slate-700 hover:text-red-600 text-xs font-medium flex items-center gap-2 transition" title="YouTube">
+                                            <i class="fa-brands fa-youtube text-red-500"></i>
+                                            <span>YouTube</span>
+                                        </a>
+                                    @endif
+
+                                    @if(!empty($brand['x']))
+                                        <a href="{{ $brand['x'] }}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 hover:text-slate-900 text-xs font-medium flex items-center gap-2 transition" title="X (Twitter)">
+                                            <i class="fa-brands fa-x-twitter text-slate-800"></i>
+                                            <span>X</span>
+                                        </a>
+                                    @endif
+                                </div>
                             </div>
-                            <div>
-                                <p class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-1">Instagram Channel</p>
-                                <p class="text-base font-medium text-slate-900">{{ $brand['instagram_handle'] }}</p>
-                            </div>
-                        </a>
+                        @endif
 
                         <!-- Address -->
-                        <div class="flex items-start gap-5 text-slate-600 pt-2 border-t border-slate-100">
-                            <div class="w-12 h-12 rounded-full bg-slate-50 text-sky-600 flex items-center justify-center shrink-0 mt-1">
-                                <i class="fa-solid fa-location-dot text-lg"></i>
+                        @if(!empty($brand['address']))
+                            <div class="flex items-start gap-5 text-slate-600 pt-2 border-t border-slate-100">
+                                <div class="w-12 h-12 rounded-full bg-slate-50 text-sky-600 flex items-center justify-center shrink-0 mt-1">
+                                    <i class="fa-solid fa-location-dot text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-1">Licensed Bottling Facility</p>
+                                    <p class="text-sm font-light text-slate-700 leading-relaxed">{{ $brand['address'] }}</p>
+                                </div>
                             </div>
-                            <div>
-                                <p class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-1">Licensed Bottling Facility</p>
-                                <p class="text-sm font-light text-slate-700 leading-relaxed">{{ $brand['address'] }}</p>
+                        @endif
+
+                        <!-- FSSAI License Number -->
+                        @if(!empty($brand['fssai_license']))
+                            <div class="flex items-center gap-5 text-slate-600 pt-2 border-t border-slate-100">
+                                <div class="w-12 h-12 rounded-full bg-slate-50 text-sky-600 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-certificate text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-1">FSSAI License Certification</p>
+                                    <p class="text-sm font-medium text-slate-900">Lic. No. {{ $brand['fssai_license'] }}</p>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
 
@@ -155,7 +238,7 @@
                         })
                         .catch(err => {
                             enquirySubmitting = false;
-                            alert('Network issue. Please WhatsApp us directly at {{ $brand['phone'] }}.');
+                            alert('Network issue. Please contact us directly at {{ $brand['phone'] ?? $brand['email'] ?? 'our commercial desk' }}.');
                         });
                     " class="space-y-6">
                         

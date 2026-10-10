@@ -12,22 +12,45 @@
             <span class="inline-flex items-center gap-1.5 text-slate-300">
                 <i class="fa-solid fa-earth-americas text-slate-400"></i> TRUSTED WORLDWIDE
             </span>
-            <span class="hidden md:inline-block text-slate-700">|</span>
-            <span class="hidden md:inline-block text-slate-400 text-[11px]">
-                {{ $brand['plant_certifications'] }}
-            </span>
+
+            @php
+                $certBadge = $brand['plant_certifications'] ?? null;
+                if (empty($certBadge) && !empty($brand['fssai_license'])) {
+                    $certBadge = 'FSSAI Lic. No: ' . $brand['fssai_license'];
+                }
+            @endphp
+            @if(!empty($certBadge))
+                <span class="hidden md:inline-block text-slate-700">|</span>
+                <span class="hidden md:inline-block text-slate-400 text-[11px]">
+                    {{ $certBadge }}
+                </span>
+            @endif
         </div>
         
         <div class="flex items-center gap-5 text-slate-300">
-            <a href="tel:{{ $brand['phone_raw'] }}" class="hover:text-white transition flex items-center gap-1.5">
-                <i class="fa-solid fa-phone text-sky-400 text-[10px]"></i> {{ $brand['phone'] }}
-            </a>
-            <a href="mailto:{{ $brand['email'] }}" class="hover:text-white transition hidden sm:flex items-center gap-1.5">
-                <i class="fa-solid fa-envelope text-sky-400 text-[10px]"></i> {{ $brand['email'] }}
-            </a>
-            <a href="{{ $brand['instagram'] }}" target="_blank" class="hover:text-white transition flex items-center gap-1.5">
-                <i class="fa-brands fa-instagram text-pink-400 text-xs"></i> {{ $brand['instagram_handle'] }}
-            </a>
+            @if(!empty($brand['phone']))
+                <a href="tel:{{ $brand['phone_raw'] ?? preg_replace('/[^0-9+]/', '', $brand['phone']) }}" class="hover:text-white transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-phone text-sky-400 text-[10px]"></i> {{ $brand['phone'] }}
+                </a>
+            @endif
+
+            @if(!empty($brand['email']))
+                <a href="mailto:{{ $brand['email'] }}" class="hover:text-white transition hidden sm:flex items-center gap-1.5">
+                    <i class="fa-solid fa-envelope text-sky-400 text-[10px]"></i> {{ $brand['email'] }}
+                </a>
+            @endif
+
+            @if(!empty($brand['instagram']))
+                <a href="{{ $brand['instagram'] }}" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-1.5">
+                    <i class="fa-brands fa-instagram text-pink-400 text-xs"></i> {{ $brand['instagram_handle'] ?? 'Instagram' }}
+                </a>
+            @endif
+
+            @if(!empty($brand['facebook']))
+                <a href="{{ $brand['facebook'] }}" target="_blank" rel="noopener noreferrer" class="hover:text-white transition hidden md:flex items-center gap-1.5" title="Facebook">
+                    <i class="fa-brands fa-facebook-f text-sky-400 text-[11px]"></i>
+                </a>
+            @endif
         </div>
     </div>
 </div>

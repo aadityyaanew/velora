@@ -157,11 +157,14 @@
 
                     <!-- Call To Actions -->
                     <div class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row gap-3">
-                        <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode($waMsg) }}"
-                           target="_blank"
-                           class="flex-1 inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-md transition">
-                            <i class="fa-brands fa-whatsapp text-lg"></i> Instant WhatsApp Enquiry
-                        </a>
+                        @if(!empty($brand['whatsapp_number']))
+                            <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode($waMsg) }}"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="flex-1 inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-md transition">
+                                <i class="fa-brands fa-whatsapp text-lg"></i> Instant WhatsApp Enquiry
+                            </a>
+                        @endif
                         <a href="{{ route('home') }}#enquiry-section"
                            class="flex-1 inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-slate-900 hover:bg-sky-800 text-white font-semibold text-sm transition">
                             <i class="fa-solid fa-file-signature text-xs"></i> Request Formal Quotation

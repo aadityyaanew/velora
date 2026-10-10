@@ -94,15 +94,17 @@
                 {{-- CTA Buttons --}}
                 <div class="mt-10 flex flex-col sm:flex-row gap-4">
 
-                    <a
-                        href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi Velora Pure, I would like to enquire about bulk supply for Packaged Drinking Water.') }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-lg bg-[#25D366] hover:bg-[#1ebe5d] text-white text-sm font-semibold transition-colors"
-                    >
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                        WhatsApp Enquiry
-                    </a>
+                    @if(!empty($brand['whatsapp_number']))
+                        <a
+                            href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi ' . ($brand['name'] ?? 'Velora Pure') . ', I would like to enquire about bulk supply for Packaged Drinking Water.') }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-lg bg-[#25D366] hover:bg-[#1ebe5d] text-white text-sm font-semibold transition-colors"
+                        >
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            WhatsApp Enquiry
+                        </a>
+                    @endif
 
                     <button
                         @click="openEnquiryFor('1 L', 'Packaged Drinking Water')"

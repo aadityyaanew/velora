@@ -33,12 +33,15 @@
 
             <!-- Header Actions -->
             <div class="hidden sm:flex items-center gap-3 shrink-0">
-                <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi Velora Pure, I would like to make an enquiry regarding water supply.') }}"
-                   target="_blank"
-                   id="header-whatsapp-btn"
-                   class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs px-4 py-2.5 rounded-full shadow-sm hover:shadow transition whitespace-nowrap">
-                    <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Us
-                </a>
+                @if(!empty($brand['whatsapp_number']))
+                    <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi ' . ($brand['name'] ?? 'Velora Pure') . ', I would like to make an enquiry regarding water supply.') }}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       id="header-whatsapp-btn"
+                       class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs px-4 py-2.5 rounded-full shadow-sm hover:shadow transition whitespace-nowrap">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Us
+                    </a>
+                @endif
                 <a href="{{ route('contact') }}" 
                    id="header-enquiry-btn"
                    class="inline-flex items-center gap-2 bg-slate-900 hover:bg-sky-700 text-white font-semibold text-xs px-5 py-2.5 rounded-full shadow-sm hover:shadow transition whitespace-nowrap">
@@ -74,11 +77,14 @@
         <a @click="mobileMenu = false" href="{{ route('contact') }}" class="block text-slate-800 hover:text-sky-600 font-medium py-1 {{ request()->routeIs('contact') ? 'text-sky-600 font-bold' : '' }}">Contact Us</a>
         
         <div class="pt-4 border-t border-slate-100 flex flex-col gap-3">
-            <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi Velora Pure, I would like to make an enquiry regarding water supply.') }}"
-               target="_blank"
-               class="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm py-3 rounded-xl shadow-sm">
-                <i class="fa-brands fa-whatsapp text-lg"></i> Direct WhatsApp Chat
-            </a>
+            @if(!empty($brand['whatsapp_number']))
+                <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode('Hi ' . ($brand['name'] ?? 'Velora Pure') . ', I would like to make an enquiry regarding water supply.') }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm py-3 rounded-xl shadow-sm">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Direct WhatsApp Chat
+                </a>
+            @endif
             <a @click="mobileMenu = false" href="{{ route('contact') }}"
                class="flex items-center justify-center gap-2 bg-slate-900 hover:bg-sky-800 text-white font-semibold text-sm py-3 rounded-xl">
                 Online Enquiry Form

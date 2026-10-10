@@ -86,11 +86,14 @@
                                 <h4 class="text-white font-medium mb-3 text-xl font-serif">Partner with Velora</h4>
                                 <p class="text-slate-400 text-sm font-light mb-8 leading-relaxed">Connect with our commercial desk to discuss tailored supply contracts and automated replenishment logistics.</p>
                                 
-                                <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode($sector['whatsapp_text']) }}"
-                                   target="_blank"
-                                   class="w-full text-center bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-sm py-4 rounded-full transition-all duration-300 flex justify-center items-center gap-3 shadow-lg shadow-emerald-900/30 hover:-translate-y-1 mb-4">
-                                    <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp Desk
-                                </a>
+                                @if(!empty($brand['whatsapp_number']))
+                                    <a href="https://wa.me/{{ $brand['whatsapp_number'] }}?text={{ urlencode($sector['whatsapp_text']) }}"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       class="w-full text-center bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-sm py-4 rounded-full transition-all duration-300 flex justify-center items-center gap-3 shadow-lg shadow-emerald-900/30 hover:-translate-y-1 mb-4">
+                                        <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp Desk
+                                    </a>
+                                @endif
                                 
                                 <button @click="openEnquiryFor('Multiple Sizes', 'Packaged Drinking Water')"
                                         class="w-full text-center bg-transparent hover:bg-slate-700 text-white font-bold uppercase tracking-widest text-xs py-4 rounded-full transition-all duration-300 border border-slate-600 hover:border-slate-500">
