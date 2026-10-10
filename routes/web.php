@@ -12,7 +12,13 @@ Route::get('/privacy-policy', [PageController::class, 'privacy'])->name('privacy
 Route::get('/terms-of-service', [PageController::class, 'terms'])->name('terms');
 
 Route::get('/', function () {
-    return view('home');
+    $products = \App\Models\Product::active()
+        ->orderBy('sort_order', 'asc')
+        ->orderBy('id', 'asc')
+        ->take(6)
+        ->get();
+
+    return view('home', compact('products'));
 })->name('home');
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');

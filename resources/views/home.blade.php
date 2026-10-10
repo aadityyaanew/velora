@@ -7,8 +7,8 @@
     <!-- Hero Section -->
     @include('components.hero')
 
-    <!-- Complete Product Formats (250 ML to 20 L) -->
-    @include('components.products')
+    <!-- Complete Product Formats (Top 6 by Order) -->
+    @include('components.products', ['products' => $products])
 
     <!-- Premium Packaged Drinking Water Deep Dive -->
     @include('components.packaged-water')
